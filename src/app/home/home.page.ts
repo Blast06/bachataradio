@@ -25,13 +25,18 @@ export class HomePage {
   emisoras: Observable<any[]>;
 
   categoria = 'regiones';
+  
 
   categorias: Observable<any[]>;
 
   constructor( public afDB: AngularFireDatabase ) {
 
     this.categorias = afDB.list('categorias').valueChanges();
+    console.log('this.categorias :', this.categorias);
 
+    this.categorias.subscribe( (data: any) => {
+      console.log('data :', data);
+    });
     this.emisoras = afDB.list(this.categoria).valueChanges();
     console.log('this.emisora :', this.emisoras);
     this.emisoras.subscribe( (data: any) => {
@@ -42,6 +47,7 @@ export class HomePage {
 
   cambiar( category: any ) {
 
+    this.categoria = category.nombre;
     console.log('category :', category);
     this.emisoras = this.afDB.list(category.nombre).valueChanges();
 

@@ -8,7 +8,7 @@
 
 <ion-content>
 
-    <h1 class="ion-padding-horizontal ion-padding-top">Emisoras</h1>
+    <h1 class="ion-padding-horizontal ion-padding-top">{{ categoria | uppercase}} </h1>
 
     <!-- options in home.page.ts defining the visible amount of slides -->
     <ion-slides [options]="slideOptsTop">
@@ -17,8 +17,8 @@
                 <img [src]="emisora.img">
                 <!-- <ion-img [src]="emisora.img"></ion-img> -->
                 <ion-card-header>
-                    <ion-card-subtitle>{{emisora.nombre}}</ion-card-subtitle>
-                    <ion-card-title>Card Title</ion-card-title>
+                    <ion-card-subtitle> {{ categoria }} </ion-card-subtitle>
+                    <ion-card-title> {{ emisora.nombre }} </ion-card-title>
                 </ion-card-header>
             </ion-card>
         </ion-slide>
