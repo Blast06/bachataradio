@@ -1,0 +1,8 @@
+{
+  "appId": "com.bachata.dominicana",
+  "appName": "bachataradio",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}

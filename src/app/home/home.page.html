@@ -8,12 +8,20 @@
 
 <ion-content>
 
-    <h1 class="ion-padding-horizontal ion-padding-top">{{ categoria | uppercase}} </h1>
+    <h1 class="ion-padding-horizontal ion-padding-top"> {{ categoria | uppercase}} </h1>
+
+    <!-- <ion-chip>
+            <ion-avatar>
+              <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+            </ion-avatar>
+            <ion-label>Avatar Chip</ion-label>
+            <ion-icon name="close-circle"></ion-icon>
+          </ion-chip> -->
 
     <!-- options in home.page.ts defining the visible amount of slides -->
     <ion-slides [options]="slideOptsTop">
         <ion-slide *ngFor="let emisora of emisoras | async">
-            <ion-card class="ion-text-start">
+            <ion-card class="ion-text-start radios-card">
                 <img [src]="emisora.img">
                 <!-- <ion-img [src]="emisora.img"></ion-img> -->
                 <ion-card-header>
@@ -29,8 +37,9 @@
     <!-- this is a more narrow, thumb'isch card slider -->
     <ion-slides [options]="slideOptsThumbs">
         <ion-slide *ngFor="let category of categorias | async">
-            <ion-card class="ion-text-start" (click)="cambiar(category)">
-                <img [src]="category.img">
+            <ion-card class="ion-text-start category-card" (click)="cambiar(category)">
+                <img class="category-pic" [src]="category.img">
+                    <!-- <ion-avatar class="category-pic" [src]="category.img"></ion-avatar> -->
                 <ion-card-content>
                     {{ category.nombre }}
                 </ion-card-content>
